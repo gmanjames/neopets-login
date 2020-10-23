@@ -1,6 +1,9 @@
-const puppeteer = require('puppeteer-firefox');
+const puppeteer = require('puppeteer-extra');
 const cheerio = require('cheerio');
 const request = require('request-promise-native');
+
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+puppeteer.use(StealthPlugin())
 
 const TYPE_DELAY_MILLI = 300;
 

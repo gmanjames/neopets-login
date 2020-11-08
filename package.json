@@ -4,15 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "env BASE_URL=http://www.neopets.com USERNAME=username PASSWORD=password node ./src/login.js"
+    "test": "env BASE_URL=http://www.neopets.com NEOPETS_USERNAME=username NEOPETS_PASSWORD=password node ./src/login.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
+    "install": "^0.13.0",
+    "npm": "^6.14.8",
     "puppeteer": "^2.1.0",
     "puppeteer-extra": "^3.1.15",
+    "puppeteer-extra-plugin-adblocker": "^2.11.7",
     "puppeteer-extra-plugin-stealth": "^2.6.2",
     "puppeteer-firefox": "^0.5.1",
     "request": "^2.88.0",

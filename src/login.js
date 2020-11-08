@@ -1,7 +1,7 @@
 const baseURL = process.env['BASE_URL'],
-	  username = process.env['NEOPETS_USERNAME'],
-	  password = process.env['NEOPETS_PASSWORD'],
-	  dataDir  = process.env['DATA_DIRECTORY'];
+	  username  = process.env['NEOPETS_USERNAME'],
+	  password  = process.env['NEOPETS_PASSWORD'],
+	  dataDir   = process.env['DATA_DIRECTORY'];
 
 const puppeteer = require('puppeteer-extra'),
 	  StealthPlugin = require('puppeteer-extra-plugin-stealth'),
@@ -13,9 +13,9 @@ puppeteer.use(AdblockerPlugin())
 const TYPE_DELAY_MILLI = 300;
 
 const sequence = (...fns) => {
-    return fns.reduce((promise, fn) => {
-        return promise.then(result => fn().then(Array.prototype.concat.bind(result)));
-    }, Promise.resolve([]))
+	return fns.reduce((promise, fn) => {
+		return promise.then(result => fn().then(Array.prototype.concat.bind(result)));
+	}, Promise.resolve([]))
 };
 
 const goToPage = (page) => (pageAddr) => page.goto(pageAddr)
@@ -57,10 +57,10 @@ const withTimeout = (fn, timeout, cb) => {
 	const page = await browser.newPage();
 
 	page.on('response', async (response) => {
-		let status       = response.status(),
-			url          = response.url(),
-			targetURL    = `${baseURL}/login.phtml`
-			targetStatus = 302;
+		let status 	 = response.status(),
+		url					 = response.url(),
+		targetURL		 = `${baseURL}/login.phtml`
+		targetStatus = 302;
 
 		console.log(`Received ${status} from ${url.slice(0, 50)}...`);
 
